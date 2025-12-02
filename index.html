@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic metadata -->
+  <meta charset="UTF-8" />
+  <title>Shalini Majumder | Bioinformatics CV</title>
+  <link rel="icon" type="image/png" href="assets/Github_CV.png" />
+  <link rel="shortcut icon" href="assets/Github_CV.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== COLOUR PALETTE (LAVENDER NIGHT) ========== */
+    :root {
+      --bg: #050316;        /* deep night */
+      --bg-alt: #07051c;
+      --card: #090922;
+      --accent: #c4b5fd;    /* soft lavender */
+      --accent-soft: #312e81;
+      --text: #f5f3ff;
+      --muted: #a5b4fc;
+      --border: #1f2937;
+      --chip: #111827;
+    }
+
+    /* Global reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(129, 140, 248, 0.35) 0, transparent 45%),
+        radial-gradient(circle at bottom right, rgba(196, 181, 253, 0.28) 0, transparent 55%),
+        radial-gradient(circle at top, #020617 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content wrapper */
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 1.75rem 0 3.5rem;
+      }
+    }
+
+    /* ========== STICKY HEADER / NAVBAR ========== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 3, 22, 0.95),
+        rgba(5, 3, 22, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .branding {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .branding-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .branding-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(79, 70, 229, 0.9);
+    }
+
+    .nav-links a:hover {
+      background: rgba(129, 140, 248, 0.9);
+      border-color: rgba(196, 181, 253, 0.9);
+      text-decoration: none;
+      color: #020617;
+    }
+
+    /* ========== HERO / TOP SUMMARY ========== */
+
+    .hero {
+      margin-top: 1.6rem;
+      margin-bottom: 1.5rem;
+      padding: 1.6rem 1.4rem;
+      border-radius: 1.4rem;
+      background: radial-gradient(circle at top left, #07051c 0, #020617 60%);
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 2fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.3rem 1.1rem;
+        border-radius: 1rem;
+      }
+    }
+
+    .hero-main h1 {
+      font-size: clamp(1.9rem, 3vw, 2.3rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-role {
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-summary {
+      font-size: 0.92rem;
+      color: #e0e7ff;
+    }
+
+    .hero-summary strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-aside {
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      align-items: flex-start;
+    }
+
+    .hero-contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+      color: var(--muted);
+    }
+
+    .chip-row {
+      margin-top: 0.55rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid rgba(196, 181, 253, 0.6);
+      color: var(--muted);
+    }
+
+    .hero-links {
+      margin-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(196, 181, 253, 0.95);
+      background: rgba(79, 70, 229, 0.9);
+      color: #f9fafb;
+      text-decoration: none;
+      gap: 0.3rem;
+    }
+
+    .btn.secondary {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(79, 70, 229, 0.9);
+    }
+
+    .btn:hover {
+      filter: brightness(1.06);
+      text-decoration: none;
+    }
+
+    /* ========== SECTIONS / CARDS ========== */
+
+    .section {
+      margin-top: 2.2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(196, 181, 253, 0.9),
+        rgba(129, 140, 248, 0.8)
+      );
+      border-radius: 999px;
+    }
+
+    .section-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 0.9rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      padding: 0.85rem 0.95rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      margin-top: 0.25rem;
+    }
+
+    .card-body ul {
+      margin-left: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .card-body li {
+      margin-bottom: 0.18rem;
+    }
+
+    /* Publications: more spacing so it’s readable */
+    ol {
+      margin-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    ol li {
+      margin-bottom: 0.85rem;
+    }
+
+    /* Skills layout */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .skills-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 0.85rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      padding: 0.75rem 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    .skills-card h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== HEADER / NAV ========== -->
+<header class="site-header">
+  <div class="nav-inner">
+    <div class="branding">
+      <div class="branding-title">Shalini Majumder</div>
+      <div class="branding-sub">MSc Bioinformatics · Multi-omics & Cancer Genomics</div>
+    </div>
+    <nav class="nav-links">
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#pubs-journal">Journal&nbsp;Papers</a>
+      <a href="#pubs-conference">Conference</a>
+      <a href="#membership">Membership</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#skills">Skills</a>
+      <a href="#wetlab">Wet Lab</a>
+      <a href="#competitions">Competitions</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#languages">Languages</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#extracurriculum">Extracurriculum</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-main">
+      <h1>Shalini Majumder</h1>
+      <div class="hero-role">MSc Bioinformatics (FT) · University of Birmingham</div>
+      <p class="hero-summary">
+        Bioinformatics researcher with training across <strong>genetics</strong>, <strong>zoology</strong>, and
+        <strong>computational biology</strong>, working on <strong>polyploid GWAS in potato</strong>,
+        <strong>signalling pathway analysis</strong>, <strong>molecular docking &amp; drug repurposing</strong>,
+        and <strong>lncRNA characterisation</strong>, supported by multiple <strong>journal</strong> and
+        <strong>conference publications</strong>.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Polyploid GWAS</span>
+        <span class="chip">lncRNA &amp; Transcriptomics</span>
+        <span class="chip">Drug Repurposing</span>
+        <span class="chip">BlueBEAR HPC</span>
+      </div>
+    </div>
+
+    <aside class="hero-aside">
+      <div class="hero-contact-line">
+        <span>📍 3 College Walk, Birmingham, B29 6LF, United Kingdom</span>
+      </div>
+      <div class="hero-contact-line">
+        <span>📧 <a href="mailto:sxm2220@student.bham.ac.uk">sxm2220@student.bham.ac.uk</a></span>
+        <span>📞 +44 7344 331 870</span>
+      </div>
+      <div class="hero-contact-line">
+        <span>🆔 ORCID: <a href="https://orcid.org/0009-0003-6371-1504" target="_blank">0009-0003-6371-1504</a></span>
+      </div>
+      <div class="hero-links">
+        <!-- CV BUTTON (update path if needed) -->
+        <a class="btn" href="assets/CV_Shalini_Majumder.pdf" target="_blank">
+          📄 Download CV (PDF)
+        </a>
+
+        <!-- ORCID BUTTON -->
+        <a class="btn secondary" href="https://orcid.org/0009-0003-6371-1504" target="_blank">
+          <span style="display:flex;align-items:center;gap:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="#A6CE39"/>
+              <path fill="#fff" d="M9.1 7.4v9.2H7V7.4h2.1zM12.2 7.4c1.3 0 2.5.5 3.4 1.4.9.9 1.4 2.1 1.4 3.4 0 1.3-.5 2.5-1.4 3.4-.9.9-2.1 1.4-3.4 1.4H10v-9.6h2.2zm0 7.7c1.6 0 2.9-1.3 2.9-2.9 0-1.6-1.3-2.9-2.9-2.9h-.8v5.8h.8z"/>
+            </svg>
+            ORCID
+          </span>
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ========== 1. EDUCATION ========== -->
+  <section id="education" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">MSc in Bioinformatics</div>
+          <div class="card-subtitle">University of Birmingham, United Kingdom</div>
+        </div>
+        <div class="card-meta">2025 – Present</div>
+      </div>
+      <div class="card-body"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">MSc in Genetics (Gold Medalist, First Class First, A+ Grade)</div>
+          <div class="card-subtitle">University of Calcutta, India</div>
+        </div>
+        <div class="card-meta">2023 – 2025</div>
+      </div>
+      <div class="card-body">
+        CGPA: 8.647 / 10.0
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">BSc in Zoology (Honours, A++ Grade)</div>
+          <div class="card-subtitle">Bethune College, University of Calcutta, India</div>
+        </div>
+        <div class="card-meta">2020 – 2023</div>
+      </div>
+      <div class="card-body">
+        CGPA: 9.041 / 10.0
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Class 11th &amp; 12th</div>
+          <div class="card-subtitle">Rahara Bhabanath Institution for Girls, WBCHSE</div>
+        </div>
+        <div class="card-meta">2018 – 2020</div>
+      </div>
+      <div class="card-body">
+        Percentage: 94.20%
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Class 5th – 10th</div>
+          <div class="card-subtitle">Rahara Bhabanath Institution for Girls, WBBSE</div>
+        </div>
+        <div class="card-meta">2012 – 2018</div>
+      </div>
+      <div class="card-body">
+        Percentage: 92.71%
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 2. RESEARCH EXPERIENCE ========== -->
+  <section id="research" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Research Experience</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Group Research Project</div>
+          <div class="card-subtitle">
+            Under the supervision of Dr. Lindsey Compton, Associate Professor in Genetics,
+            School of Biosciences, University of Birmingham, UK
+          </div>
+        </div>
+        <div class="card-meta">2025 – Present</div>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong>Research Topic:</strong><br>
+          Optimising GWAS pipelines to uncover genetic loci underlying canopy architecture and yield (complex
+          traits) in autotetraploid potato using SNP and phenotyping datasets, enabling enhanced precision
+          breeding for climate-resilient crop improvement. The work integrates population structure analysis
+          (DAPC and STRUCTURE), environmental correction using Best Linear Unbiased Estimates (BLUEs), and
+          comparative statistical models to improve trait–locus associations. Gaining hands-on experience in
+          developing a robust polyploid GWAS workflow using R and Linux.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Research Internship</div>
+          <div class="card-subtitle">
+            Under the supervision of Dr. Tapan Chowdhury, Head and Associate Professor,
+            Department of Computer Science and Engineering, Techno Main Salt Lake, Kolkata, India
+          </div>
+        </div>
+        <div class="card-meta">2023 – 2025</div>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong>Research Domain:</strong><br>
+          Signaling Pathway Analysis, Molecular Docking, Deep Learning for Protein–Ligand Binding Affinity
+          Prediction.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Summer Research Internship</div>
+          <div class="card-subtitle">
+            Under the supervision of Dr. Arpita Konar, Assistant Professor, Institute of Health Sciences,
+            Presidency University, Kolkata, India
+          </div>
+        </div>
+        <div class="card-meta">2024</div>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong>Dissertation Topic:</strong><br>
+          In silico Characterization and Tissue-specific Expression Analysis of Mouse lncRNA Gm26809. Utilised
+          bioinformatics tools (e.g., RNAfold, CPC2, lncLocator, LncRRISearch, etc.) to characterise the lncRNA
+          and performed qPCR-based quantification to validate tissue-specific expression profiling.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. PUBLICATIONS – JOURNAL ========== -->
+  <section id="pubs-journal" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Publications – Journal</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ol>
+          <li>
+            S. Majumder, E. Lodh, and T. Chowdhury,
+            “Implications of trinodal inhibitions and drug repurposing in MAPK pathway: A putative remedy for breast cancer,”
+            <em>Computational Biology and Chemistry</em>, vol. 113, p. 108255, Oct. 2024,
+            doi: <a href="https://doi.org/10.1016/j.compbiolchem.2024.108255" target="_blank">
+              10.1016/j.compbiolchem.2024.108255
+            </a>.
+          </li>
+          <li>
+            T. Chowdhury, E. Lodh, and S. Majumder,
+            “A Novel Method for Drug Application on Signaling Pathways with Concurrent Faults Using Probabilistic Boolean Networks,”
+            <em>Computational Intelligence</em>, Feb. 2025 (Under Revision).
+          </li>
+          <li>
+            E. Lodh, S. Majumder, and T. Chowdhury,
+            “PAM50GenePath: A CatBoost-Driven Framework for Enhanced Invasive Breast Cancer Subtype Classification,”
+            <em>Sādhanā</em>, Feb. 2025 (Under Review).
+          </li>
+          <li>
+            E. Lodh, T. Chowdhury, and S. Majumder,
+            “BioAlignNet: A GPU-Accelerated Framework for Efficient Global Sequence Alignment Across Genomics and Proteomics Scales,”
+            <em>Computational Intelligence</em>, Mar. 2025 (Under Review).
+          </li>
+          <li>
+            E. Lodh, S. Majumder, T. Chowdhury, and M. De,
+            “RLBindDeep: A ResNet-LSTM Based Novel Framework for Protein–Ligand Binding Affinity Prediction,”
+            <em>Journal of Molecular Graphics and Modelling</em>, Jun. 2025 (Under Revision).
+          </li>
+          <li>
+            T. Chowdhury, S. Samanta, P. Sil, S. Banerjee, S. Banerjee, E. Lodh, S. Majumder, and M. De,
+            “Biomarker Discovery For Breast Cancer Subtype Detection Using Deep Learning Based Approach,”
+            <em>SN Computer Science</em>, Oct. 2025 (Under Review).
+          </li>
+          <li>
+            E. Lodh, T. Chowdhury, S. Majumder, M. De, and S. Singha,
+            “SkinEnsemNet: A Novel Ensemble Deep Learning Framework for Skin Cancer Classification,”
+            <em>Multimedia Tools and Applications</em>, Oct. 2025 (Submitted).
+          </li>
+          <li>
+            T. Chowdhury, A. Maitra, A. Agarwal, A. Sur, S. Sarkar, E. Lodh, and S. Majumder,
+            “Multiple Fault Analysis and Drug Therapy on Signaling Pathways Using GPU-Accelerated Dynamic Bayesian Network-based Model,”
+            <em>The Journal of Supercomputing</em>, Oct. 2025 (Submitted).
+          </li>
+          <li>
+            S. Majumder, E. Lodh, T. De, and T. Chowdhury,
+            “In silico Characterization of Melanoma-derived Mouse lncRNA Gm26982 and Comparative Analyses with Human Ortholog,”
+            <em>Molecular Genetics and Genomics</em>, Nov. 2025 (Under Review).
+          </li>
+          <li>
+            E. Lodh, T. Chowdhury, A. Shaw, D. Bedajna, S. Bera, S. Majumder, and M. De,
+            “A Stacked Ensemble Meta-Classifier Framework for PAM50 Breast Cancer Subtype Prediction from Gene Expression Signatures,”
+            <em>Network Modeling Analysis in Health Informatics and Bioinformatics</em>, Nov. 2025 (Submitted).
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. PUBLICATION – CONFERENCE ========== -->
+  <section id="pubs-conference" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Publication – Conference</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ol>
+          <li>
+            E. Lodh, S. Majumder, and T. Chowdhury,
+            “CGDeepAff: Deep Learning-Based Approach for Protein–Ligand Binding Affinity Estimation Using CNN-GRU,”
+            <em>2025 8th International Conference on Electronics, Materials Engineering &amp; Nano-Technology (IEMENTech)</em>,
+            Kolkata, India, 2025, pp. 1–6,
+            doi: <a href="https://doi.org/10.1109/IEMENTech65115.2025.10959578" target="_blank">
+              10.1109/IEMENTech65115.2025.10959578
+            </a>. (Presenter)
+          </li>
+          <li>
+            E. Lodh, S. Majumder, T. De, T. Chowdhury, and M. De,
+            “GeneDeepNet: A Differential Expression and Deep Learning Based Novel Framework for Detecting Invasive Breast Cancer Subtypes,”
+            <em>4th International Conference on Machine Learning and Data Engineering (ICMLDE-2025)</em>,
+            <em>Procedia Computer Science</em>, 2025 (Accepted, In Press).
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. PROFESSIONAL MEMBERSHIP ========== -->
+  <section id="membership" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Professional Membership</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p>
+          <strong>IEEE (Institute of Electrical and Electronics Engineers) Member</strong>, 2025 – present<br />
+          – Member of IEEE Young Professionals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. LEADERSHIP ========== -->
+  <section id="leadership" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Leadership</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>2025 – present: Postgraduate Student Ambassador, University of Birmingham.</li>
+          <li>2025 – present: Student Rep, MSc Bioinformatics, University of Birmingham.</li>
+          <li>2023 – 2025: Class Representative, Department of Genetics, University of Calcutta.</li>
+          <li>2022 – 2023: Secretary, Science &amp; Environment Club, Bethune College Students’ Committee (BCSC), Bethune College.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. SKILLS (PROGRAMMING / BIOINFO / HPC / DIGITAL) ========== -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skills-card">
+        <h4>Programming Languages</h4>
+        <p>R, Python, Linux, Shell Scripting, Awk.</p>
+      </div>
+
+      <div class="skills-card">
+        <h4>Bioinformatics Tools</h4>
+        <p>
+          Proficiency in molecular docking and real-time simulation tools (e.g., UCSF Chimera, PyRx, AutoDock Vina 1.2.5,
+          ClusPro 2.0, Discovery Studio (BIOVIA)). Familiar with in silico ncRNA characterization tools
+          (e.g., RNAfold, LncRRISearch, LncBase v.3, lncLocator, iLOC-LncRNA (2.0), CPC2, RNAinter v4.0, NPInter v5.0).
+          Familiar with primer tools (e.g., NEBcutter V2.0, Primer3 Input). Done working with plant regulome analysis tools
+          (e.g., PlantPAN 4.0, Phytozome v13).
+        </p>
+      </div>
+
+      <div class="skills-card">
+        <h4>High-Performance Computing Skill</h4>
+        <p>
+          Gained experience in running large-scale genomics workflows in BlueBEAR HPC (University of Birmingham).
+        </p>
+      </div>
+
+      <div class="skills-card">
+        <h4>Digital Skills</h4>
+        <p>Microsoft Office tools, Canva, DATAtab, Cytoscape.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. WET LABORATORY SKILLS ========== -->
+  <section id="wetlab" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Wet Laboratory Skills</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>
+            Proficient experience in PCR, qPCR, RNA, gDNA &amp; plasmid DNA isolation, cDNA synthesis,
+            native and SDS-PAGE, agarose gel electrophoresis, RFLP, bacterial culture, plant tissue
+            culture, and karyotyping.
+          </li>
+          <li>
+            Basic experience in Agroinfiltration, Y1H assay, Y2H assay.
+          </li>
+          <li>
+            Gained experience in handling autoclave, centrifuge, vortex, nanodrop &amp; spectrophotometer.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 9. COMPETITIONS ========== -->
+  <section id="competitions" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Competitions</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p><strong>INDUSTRIAL CARNIVAL 4.0, a 36 Hours Ideathon</strong> (2021)</p>
+        <ul>
+          <li>Organised by SPE-VIT (Vellore Institute of Technology), School of Chemical Engineering.</li>
+          <li>Position: Qualified to the finals.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p><strong>LOKNITI, Policy Conclave 2021</strong> (2021)</p>
+        <ul>
+          <li>Organised by Public Policy &amp; Opinion Cell, Indian Institute of Technology (IIT) Kanpur.</li>
+          <li>
+            Project: Proposed and presented a sustainable technology proposal, ACCEPTaB (Activated, controllable,
+            cost-effective, eco-friendly, perennial, thermo-absorbent bio-generator).
+          </li>
+          <li>Position: 1st.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p><strong>ENVITIATIVE, Public Policy Hackathon 2021</strong> (2021)</p>
+        <ul>
+          <li>Organised by Environment Cell, University Business School, Punjab University.</li>
+          <li>Project: ACCEPTaB.</li>
+          <li>Position: 3rd.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p><strong>Most Innovative Research Presentation</strong> (2018)</p>
+        <ul>
+          <li>Organised by Rahara Ramakrishna Mission Boys’ Home High School.</li>
+          <li>Project: Presented an innovative model on Hydroponics to a general audience.</li>
+          <li>Position: 1st.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 10. ACADEMIC ACHIEVEMENTS ========== -->
+  <section id="achievements" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Academic Achievements</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>Jyotsna Manna Memorial Prize for highest proficiency in Zoology Honours in BSc Exams from Bethune College (2024).</li>
+          <li>Kamalmani Sarma Memorial Prize for highest proficiency in Zoology Honours in BSc Exams from the college (2024).</li>
+          <li>Minati Banik Memorial Prize for highest proficiency in Zoology Honours in BSc Exams from Bethune College (2024).</li>
+          <li>Special Staff Prize for securing First class in Zoology Honours in BSc Exams from Bethune College (2024).</li>
+          <li>Special College Prize for securing 1st position in Zoology BSc Honours Semester I–IV Exams in Bethune College (2024).</li>
+          <li>Chandramukhi Basu Memorial Gold Medal for being the best all-rounder student of Bethune College (2023).</li>
+          <li>Nalini Das Silver Medal for being the best all-rounder student of Bethune College (2023).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 11. LANGUAGE QUALIFICATIONS ========== -->
+  <section id="languages" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Language Qualifications</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>
+            <strong>IELTS</strong>, Overall Band Score: 7.5 (Listening: 8.0, Reading: 8.0, Writing: 7.5, Speaking: 7.0),
+            CEFR level: C1 (2025).
+          </li>
+          <li>
+            <strong>Goethe Start Deutsch A1</strong>, Goethe-Institut, Score: 78/100, Befriedigend (2024).
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 12. COURSES & CERTIFICATIONS ========== -->
+  <section id="certifications" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Courses &amp; Certifications</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>Python for Genomic Data Science – Johns Hopkins University, Coursera (2025).</li>
+          <li>Introduction to Python Programming – University of Pennsylvania, Coursera (2025).</li>
+          <li>Hands-on Biotechnology Training as a Member at Biotechnology Lab in BITM Kolkata (Jul – Dec 2022).</li>
+          <li>Immunology – Indian Institute of Technology (IIT) Kharagpur, NPTEL (2021).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 13. EXTRACURRICULUM ========== -->
+  <section id="extracurriculum" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Extracurriculum</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>Participation in the cultural programme at the Jahresabschlussfeier (yearly social) at Goethe-Institut Kolkata (2024).</li>
+          <li>Participation in Conservation Entrepreneurship workshop, RUSA 2.0, Alipore Zoological Garden (2024).</li>
+          <li>Active participation in Science &amp; Environment Club 2023, BCSC, Bethune College (2023).</li>
+          <li>Active participation in Literary Club 2021, BCSC, Bethune College (2022).</li>
+          <li>Participation in <em>HISTORY UNVEILED</em>, a national essay writing competition, by JIM Indore (2021).</li>
+          <li>Secured 3rd position in IMPULSE, an Instant Speech Competition 2021, by Heramba Chandra College (2021).</li>
+          <li>Participation in SIYAAHI (English), a Writing Competition, by Heramba Chandra College (2021).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT / FOOTER ========== -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        For collaborations and research opportunities, please contact:<br>
+        📧 <a href="mailto:sxm2220@student.bham.ac.uk">sxm2220@student.bham.ac.uk</a><br>
+        📍 3 College Walk, Birmingham, B29 6LF, United Kingdom.
+      </div>
+    </div>
+    <div class="footer">
+      Last updated: Dec 2025 · Hosted via GitHub Pages.
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
