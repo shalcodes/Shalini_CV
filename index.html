@@ -384,6 +384,7 @@
       <a href="#research">Research</a>
       <a href="#pubs-journal">Journal&nbsp;Papers</a>
       <a href="#pubs-conference">Conference</a>
+      <a href="#projects">Projects</a>
       <a href="#membership">Membership</a>
       <a href="#leadership">Leadership</a>
       <a href="#skills">Skills</a>
@@ -736,6 +737,46 @@
             <em>Procedia Computer Science</em>, 2025 (Accepted, In Press).
           </li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 2.5 PROJECTS ========== -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-sub">
+        Selected software and pipelines (see GitHub for full list).
+      </div>
+    </div>
+    
+    <!-- CLI pipeline (Delly-VCF-Trio-Analyzer) -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Structural Variant (SV) Analysis Pipeline</div>
+          <div class="card-subtitle">DELLY_VCF_Trio SV Analysis Workflow</div>
+        </div>
+        <div class="card-meta">
+          <a href="https://github.com/shalcodes/SV_analysis" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>
+            The pipeline processes a Delly-generated VCF, performs sample detection (child and parents), 
+            parent detection (who father and who mother), sex determination of the child, SV extraction, 
+            de novo detection, family‑based inference, BED-based annotation, and high‑quality visualisation.
+          </li>
+          <li>
+            It combines shell scripting, AWK and Python scripts, ANNOVAR and ClinVar databases, and BEDTools-based 
+            comparisons.
+          </li>
+          </li>
+            This can analyse a Delly VCF file of any family of trio (father, mother, child) for their structural variants. 
+            It can be applied to other Delly VCF files by tweaking the file and folder names a bit and changing the code.
+          </li>
+        </ul>
       </div>
     </div>
   </section>
